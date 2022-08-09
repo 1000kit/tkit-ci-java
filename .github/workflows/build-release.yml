@@ -7,6 +7,10 @@ on:
         default: '17'
         required: false
         type: string
+env:
+  GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+  OOSRH_USERNAME: ${{ secrets.OOSRH_USERNAME }}
+  OOSRH_PASSWORD: ${{ secrets.OOSRH_PASSWORD }}
 jobs:
   build:
     name: build release
@@ -17,10 +21,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           server-id: ossrh
-          server-username: ${{ secrets.OOSRH_USERNAME }}
-          server-password: ${{ secrets.OOSRH_PASSWORD }}
+          server-username: OOSRH_USERNAME
+          server-password: OOSRH_PASSWORD
           gpg-private-key: ${{ secrets.GPG_KEY_SECRET }}
-          gpg-passphrase:  ${{ secrets.GPG_PASSPHRASE }}
+          gpg-passphrase:  GPG_PASSPHRASE
           distribution: 'zulu'
           java-version: ${{ inputs.java-version }}
           cache: 'maven'
