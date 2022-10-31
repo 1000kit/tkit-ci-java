@@ -29,9 +29,9 @@ jobs:
           java-version: ${{ inputs.java-version }}
           cache: 'maven'
       - name: Set project version
-        run: mvn versions:set -DnewVersion=${{ github.ref_name }}
+        run: mvn --no-transfer-progress --batch-mode --errors versions:set -DnewVersion=${{ github.ref_name }}
       - name: Deploy release
-        run: mvn deploy -DskipTests -Prelease
+        run: mvn --no-transfer-progress --batch-mode --errors deploy -DskipTests -Prelease
       - name: Create release
         uses: lorislab/changelog-action@v1.0.0
         with:
