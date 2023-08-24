@@ -19,5 +19,10 @@ jobs:
           distribution: 'zulu'
           java-version: ${{ inputs.java-version }}
           cache: 'maven'
+      - uses: lorislab/install-samo-action@v2
+      - name: Version info
+        run: |
+          samo project version
+          samo project version --version=release
       - name: Build project
         run: mvn --no-transfer-progress --batch-mode --errors clean package
