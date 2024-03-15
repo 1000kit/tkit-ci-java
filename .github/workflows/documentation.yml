@@ -9,5 +9,5 @@ jobs:
       - uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.TKIT_CI_PAT }}
-          repository: onecx/docs
+          repository: 1000kit/1000kit.github.io
           event-type: dispatch-build-website
