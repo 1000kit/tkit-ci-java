@@ -9,8 +9,8 @@ on:
         type: string
 env:
   GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-  OOSRH_USERNAME: ${{ secrets.OOSRH_USERNAME }}
-  OOSRH_PASSWORD: ${{ secrets.OOSRH_PASSWORD }}
+  MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+  MAVEN_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
 jobs:
   build:
     name: build release
@@ -20,9 +20,9 @@ jobs:
       - name: Set up java
         uses: actions/setup-java@v4
         with:
-          server-id: ossrh
-          server-username: OOSRH_USERNAME
-          server-password: OOSRH_PASSWORD
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_KEY_SECRET }}
           gpg-passphrase:  GPG_PASSPHRASE
           distribution: 'zulu'
