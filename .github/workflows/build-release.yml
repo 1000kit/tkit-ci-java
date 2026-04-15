@@ -33,7 +33,7 @@ jobs:
       - name: Deploy release
         run: mvn --no-transfer-progress --batch-mode --errors deploy -DskipTests -Prelease
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
         env:
