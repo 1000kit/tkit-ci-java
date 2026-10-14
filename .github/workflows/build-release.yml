@@ -31,7 +31,7 @@ jobs:
       - name: Set project version
         run: mvn --no-transfer-progress --batch-mode --errors versions:set -DnewVersion=${{ github.ref_name }}
       - name: Deploy release
-        run: mvn --no-transfer-progress --batch-mode --errors deploy -DskipTests -Prelease
+        run: mvn --no-transfer-progress --batch-mode --errors deploy -DskipTests -DskipITs -Prelease
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
