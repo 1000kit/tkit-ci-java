@@ -16,9 +16,9 @@ jobs:
     name: build release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Set up java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           server-id: central
           server-username: MAVEN_USERNAME
